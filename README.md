@@ -86,46 +86,40 @@ Features:
 
 # 🏗️ Project Architecture
 
-The project follows a layered architecture:
-
+```text
 Controller Layer
-|
-↓
+        │
+        ▼
 Service Layer
-|
-↓
+        │
+        ▼
 Repository Layer
-|
-↓
+        │
+        ▼
 Entity Framework Core
-|
-↓
-SQL Server Database
+        │
+        ▼
+SQL Server
+```
 
 
 ---
 
 # 📁 Project Structure
 
+```text
 ECommerceApi
 │
 ├── Controllers
-│
 ├── DTOs
-│
 ├── Models
-│
 ├── Data
-│
 ├── Interfaces
-│
 ├── Repositories
-│
 ├── Services
-│
 ├── Mappings
-│
 └── Program.cs
+```
 
 ---
 
@@ -137,6 +131,7 @@ ECommerceApi
 - C#
 - Entity Framework Core
 - LINQ
+- AutoMapper
 
 ## Database
 
@@ -191,10 +186,6 @@ Access Protected Endpoints
 # 📌 API Modules
 
 ## Authentication APIs
-
-POST /api/Auth/Register
-
-POST /api/Auth/Login
 
 POST /api/Auth/Register
 
@@ -258,16 +249,19 @@ Example:
 "ConnectionStrings": {
   "DefaultConnection": "Your_SQL_Server_Connection"
 }
+```
 
-3. Apply Database Migration
+### 3. Apply Database Migration
 
-Run:
+```powershell
 Update-Database
+```
 
-4. Run Application
+### 4. Run Application
 
-Run the project:
+```bash
 dotnet run
+```
 
 Swagger will open:
 
@@ -294,7 +288,7 @@ https://localhost:<port>/swagger
 
 ![Order Checkout](Screenshots/order-checkout.png)
 
-🎯 Learning Outcomes
+# 🎯 Learning Outcomes
 
 Through this project, implemented:
 
@@ -307,6 +301,9 @@ Through this project, implemented:
 - API Documentation using Swagger
 - E-Commerce Backend Workflow
 
-👨‍💻 Author
+# 👨‍💻 Author
 
-Ajay B
+**Ajay B**
+---
+
+⭐ If you found this project useful, please consider giving it a star on GitHub!

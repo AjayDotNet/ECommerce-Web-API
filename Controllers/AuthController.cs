@@ -21,7 +21,7 @@ namespace ECommerceApi.Controllers
             var result = await _authService.RegisterAsync(dto);
 
             if (result == null)
-                return BadRequest("Registration failed.");
+                return BadRequest("User Already Exists.");
 
             return Ok(result);
         }

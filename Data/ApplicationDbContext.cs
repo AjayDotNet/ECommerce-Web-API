@@ -27,20 +27,41 @@ namespace ECommerceApi.Data
         {
             base.OnModelCreating(modelBuilder);
 
+            // User - Cart Relationship
             modelBuilder.Entity<User>()
                 .HasOne(u => u.Cart)
                 .WithOne(c => c.User)
                 .HasForeignKey<Cart>(c => c.UserId);
 
+
+            // Cart - CartItems Relationship
             modelBuilder.Entity<Cart>()
                 .HasMany(c => c.CartItems)
                 .WithOne(ci => ci.Cart)
                 .HasForeignKey(ci => ci.CartId);
 
+
+            // Product - CartItems Relationship
             modelBuilder.Entity<Product>()
                 .HasMany(p => p.CartItems)
                 .WithOne(ci => ci.Product)
                 .HasForeignKey(ci => ci.ProductId);
+
+
+            // Decimal Precision Fix
+            modelBuilder.Entity<Product>()
+                .Property(p => p.Price)
+                .HasPrecision(18, 2);
+
+
+            modelBuilder.Entity<Order>()
+                .Property(o => o.TotalAmount)
+                .HasPrecision(18, 2);
+
+
+            modelBuilder.Entity<OrderItem>()
+                .Property(oi => oi.Price)
+                .HasPrecision(18, 2);
         }
     }
 }
